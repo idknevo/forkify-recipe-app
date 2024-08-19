@@ -1,5 +1,4 @@
 import View from "./view.js";
-import icons from "url:../../img/icons.svg";
 
 class addRecipeView extends View {
   _parentElement = document.querySelector(".upload");
@@ -41,12 +40,9 @@ class addRecipeView extends View {
       e.preventDefault();
       const dataArr = [...new FormData(this)];
       const data = Object.fromEntries(dataArr);
-      // console.log(data);
       handler(data);
     });
   }
-
-  _generateHtml() {}
 }
 
 export default new addRecipeView();
