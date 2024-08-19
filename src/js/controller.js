@@ -22,7 +22,6 @@ const controlRecipes = async function () {
 
     await model.loadRecipes(id);
     const { recipe } = model.state;
-    console.log(recipe);
     recipeView.render(recipe);
   } catch (err) {
     recipeView.renderErrorMessage();
@@ -46,7 +45,6 @@ const controlSearchResults = async function () {
 };
 
 const controlPagination = function (goToPage) {
-  // console.log(goToPage);
   resultsView.render(model.resultsPerPage(goToPage));
   paginationView.render(model.state.search);
 };
@@ -60,7 +58,6 @@ const controlServings = function (newServings) {
 const controlAddBookmarks = function () {
   if (!model.state.recipe.bookmarked) model.addBookmark(model.state.recipe);
   else model.deleteBookmark(model.state.recipe.id);
-  // console.log(model.state.recipe);
   recipeView.update(model.state.recipe);
 
   bookmarksView.render(model.state.bookmarks);
@@ -74,7 +71,6 @@ const controlUploadRecipe = async function (newRecipe) {
   try {
     addRecipeView.loadSpinner();
     await model.uploadRecipe(newRecipe);
-    console.log(model.state.recipe);
     recipeView.render(model.state.recipe);
     addRecipeView.renderMessage();
     bookmarksView.render(model.state.bookmarks);
@@ -84,12 +80,7 @@ const controlUploadRecipe = async function (newRecipe) {
     }, FORM_CLOSE_SECONDS * 1000);
   } catch (err) {
     addRecipeView.renderErrorMessage(err.message);
-    console.error(err.message);
   }
-};
-
-const newFeature = function () {
-  console.log("welcome to the application");
 };
 
 const init = function () {
@@ -100,7 +91,6 @@ const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUploadRecipe(controlUploadRecipe);
-  newFeature();
 };
 
 init();
