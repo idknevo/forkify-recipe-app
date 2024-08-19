@@ -1,0 +1,24 @@
+{
+  "name": "forkify",
+  "version": "1.0.0",
+  "description": "meals recipe application",
+  "default": "index.html",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --no-scope-hoist --dist-dir ./dist"
+  },
+  "author": "Ahmed Abdelhafiez",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.12.0",
+    "@types/core-js": "^2.5.8",
+    "@types/regenerator-runtime": "^0.13.6",
+    "parcel": "^2.12.0"
+  },
+  "dependencies": {
+    "core-js": "^3.38.0",
+    "fractional": "^1.0.0",
+    "ldrs": "^1.0.2",
+    "regenerator-runtime": "^0.14.1"
+  }
+}
